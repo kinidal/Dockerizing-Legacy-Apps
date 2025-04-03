@@ -1,4 +1,4 @@
-# 🚀 Survey App Deployment - DevOps Project
+# Dockerizing Legacy Apps Managing via Azure Container Services.
 
 ![Docker](https://img.shields.io/badge/Docker-Containerization-blue?logo=docker)
 ![DevOps](https://img.shields.io/badge/DevOps-CI/CD-orange?logo=githubactions)
@@ -6,7 +6,7 @@
 ![Angular](https://img.shields.io/badge/Angular-Frontend-red?logo=angular)
 
 ## 📌 **Introduction**
-This project demonstrates the **containerization** and **deployment** of a full-stack **Survey Application** using **Docker**.  
+This project demonstrates the **containerization** and **deployment** of a full-stack Legacy apps with underlying different technologies such as Angular, Python, PHP and ASP.Net
 It showcases my **DevOps** skills in setting up microservices, handling environment variables, debugging, and automating deployments.
 
 ### 🔹 **Tech Stack**
