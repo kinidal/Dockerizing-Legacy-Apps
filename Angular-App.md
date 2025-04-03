@@ -37,7 +37,7 @@ CMD ["npm", "start"]
 
 ````
 
-### ✅ **Setting UP the containers **
+### ✅ **Setting UP the containers**
 
 **Steps**
 ````Plaintext
@@ -51,32 +51,9 @@ docker run -d -p 4200:4200 --name myyapp-frontend myapp-frontend
 
 ### ❌ Issue 1: The container is crashing showing npm related issues
 
-> **My first Docker file was like this**  
-
-```plaintext
-# Use official Node.js image as base
-FROM node:18
-
-# Set working directory inside the container
-WORKDIR /app
-
-# Copy the application code (or use a bind mount for local development)
-COPY . .
-
-# Install dependencies
-RUN npm install
-
-# Expose port 4200
-EXPOSE 4200
-
-# Start the application
-CMD ["npm", "start"]
-
-````
-
-> I have checked the logs using 'docker logs' and found that some issues related to npm start
-> I checked if any other services using the same port 4200, none i have seen.
-> Then i tried executing npm start using interactive mode
+I have checked the logs using 'docker logs' and found that some issues related to npm start.
+Also checked if any other services using the same port 4200, none i have seen.
+Then i tried executing npm start using interactive mode
 
 ````plaintext
 docker run -it --rm myyapp /bin/bash
@@ -86,19 +63,23 @@ npm start
 
 curl http://localhost:4200
 ````
-> This confirms that the application is working inside the container after executing the npm start command directly inside the container.
-> After searching i found out that the Angular applications has these sort of issues when there is some dependencies in the files it fails to start the app. So i decided to copy the whole files after installing all the dependencies.
-> After that container is UP issue is resolved
+This confirms that the application is working inside the container after executing the npm start command directly inside the container.
+
+After searching i found out that the Angular applications has these sort of issues when there is some dependencies in the files it fails to start the app. So i decided to copy the whole files after installing all the dependencies.
+
+That resolved the issue and contiainer serre started.
 
 ### ❌ Issue 2: The container is UP but the app is not available outside but inside
 
-> The app is now running inside the container without issue but the same is not available in the outside local network
-> After researching i found that there is a default setting in Angular apps that the default binding defined is to local system only
-> I changed the package.json file as follows and it worked perfectly
+The app is now running inside the container without issue but the same is not available in the outside local network.
+After researching i found that there is a default setting in Angular apps that the default binding defined is to local system only.
+
+Knowing that i changed the package.json file as follows and it worked perfectly
 
 ````plaintext
 "start": "ng serve --host 0.0.0.0 --port 4200 --disable-host-check"
 ````
+
 
 ## ![Web App](https://img.shields.io/badge/Web%20App-0078D7?style=for-the-badge&logo=googlechrome&logoColor=white) **The Angular App: Backend**
 
@@ -134,7 +115,7 @@ CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
 ````
 
-### ✅ **Setting UP the containers **
+### ✅ **Setting UP the containers**
 
 **Steps**
 ````Plaintext
