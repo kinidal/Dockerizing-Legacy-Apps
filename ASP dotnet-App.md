@@ -49,7 +49,7 @@ EXPOSE 80
 ENTRYPOINT ["C:\\ServiceMonitor.exe", "w3svc"]
 ````
 
-### ✅ **Setting UP the containers **
+### ✅ **Setting UP the containers**
 
 **Steps**
 ````Plaintext
@@ -128,3 +128,34 @@ docker exec -it asp-app-debug powershell
 When browsing through the files in the container i have found that the files in the working directory that is C:\inetpub\wwwroot only has the compiled DLLs and no ASP.NET web content files (like .aspx pages, web.config, CSS, JavaScript, images, etc.).
 
 So i figured i need to copy all the web content files from the source directory to the final container, not just the compiled binaries. The application can't run without the web.config and other content files.
+
+**DockerFile**
+````
+# Copy ALL web content files from the source
+COPY --from=build /app/ .
+# This will overwrite the bin directory with the compiled files - so i will have both content files AND compiled assemblies
+
+````
+
+### ❌ Issue 3 : Build image error : Powershell command compatibility issue
+
+During the build i got this error related to website creating powershell commands
+
+````
+Set-WebSite : The term 'Set-WebSite' is not recognized as the name of a 
+cmdlet, function, script file, or operable program. Check the spelling of the
+name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:359
+````
+
+After researching i figured out this is known issue that some cmdlet is dependent to Webadministration module and the version of the powershell.
+
+So i have used the appcmd.exe instead of Set-Website to set the application pool.
+
+The appcmd.exe tool is a command-line utility that comes with IIS and provides a way to configure IIS settings.
+
+**DockerFile**
+````
+ & $env:windir\system32\inetsrv\appcmd.exe set app 'PMOscar/' /applicationPool:'PMOscarPool'
+
+````
