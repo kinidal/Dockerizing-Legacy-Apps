@@ -70,7 +70,7 @@ expose_php = Off
 session.cookie_httponly = 1
 ````
 
-### ✅ **Setting UP the containers **
+### ✅ **Setting UP the containers**
 
 **Steps**
 ````Plaintext
@@ -78,7 +78,7 @@ docker build -t my-php55-app .
 docker run -d -p 8080:80 my-php55-app
 ````
 
-### ✅ **Setting UP the DataBase **
+### ✅ **Setting UP the DataBase**
 
 
 ## 🔥 **Challenges Faced & How I Solved Them**
