@@ -14,9 +14,11 @@ It showcases my **DevOps** skills in setting up microservices, handling differen
 - **Python and Django (REST API)**
 - **PHP**
 - **ASP.Net**
-- **Database:MySQL**
+- **MySQL**
 - **Docker**
+
 ---
+
 
 ## 🎯 **Motive & Plan**
 
