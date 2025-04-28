@@ -32,10 +32,10 @@ It showcases my **DevOps** skills in setting up microservices, handling differen
 
 ### ✅ **Applications**
 
-➡️ [ASP.Net App](https://github.com/kinidal/Dockerizing-Legacy-Apps/blob/main/ASP%20dotnet-App.md)
+➡️ [ASP.Net App](https://kinidal.github.io/Project-03-App-01/)
 
-➡️ [Angular App](https://github.com/kinidal/Dockerizing-Legacy-Apps/blob/main/Angular-App.md)
+➡️ [Angular App](https://kinidal.github.io/Project-03-App-02/)
 
-➡️ [PHP App](https://github.com/kinidal/Dockerizing-Legacy-Apps/blob/main/PHP-App.md)
+➡️ [PHP App](https://kinidal.github.io/Project-03-App-03/)
 
 ---
